@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibraryApp.Model
 {
-    public class Books
+    public class Book
     {
 
         [Key]
@@ -15,5 +15,7 @@ namespace LibraryApp.Model
         [Required]
         public string Name { get; set; }
         public string Author { get; set; }
+
+        public string ISBN { get; set; }
     }
 }
