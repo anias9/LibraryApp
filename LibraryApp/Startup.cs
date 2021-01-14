@@ -10,9 +10,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using LibraryApp.Model;
+using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryApp
 {
+ 
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -26,6 +28,7 @@ namespace LibraryApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddControllersWithViews();
             services.AddRazorPages().AddRazorRuntimeCompilation();
         }
 
@@ -52,6 +55,7 @@ namespace LibraryApp
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllers();
                 endpoints.MapRazorPages();
             });
         }
