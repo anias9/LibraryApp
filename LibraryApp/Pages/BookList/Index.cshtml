@@ -30,6 +30,9 @@
                         <label asp-for="Books.FirstOrDefault().ISBN"></label>
                     </th>
                     <th>
+                        <label asp-for="Books.FirstOrDefault().Genre"></label>
+                    </th>
+                    <th>
 
                     </th>
                 </tr>
@@ -50,6 +53,9 @@
                     @Html.DisplayFor(m => el.ISBN)
                 </td>
                 <td>
+                    @Html.DisplayFor(m => el.Genre)
+                </td>
+                <td>
                     <button asp-page-handler="Delete" asp-route-id="@el.Id" onclick="return confirm('Do you want to delete book titled: @el.Name written by: @el.Author ')" class="btn btn-danger btn-sm">Delete</button>
                     <a asp-page="Edit" asp-route-id="@el.Id" class="btn btn-success btn-sm">Edit</a>
                 </td>
@@ -64,5 +70,7 @@
             }
         </form>
     </div>
-</div>
+@section Scripts{
+    <script src="~/js/bookList.js"></script>
 
+} 
